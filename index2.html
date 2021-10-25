@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    alert("WELCOME TO ASSIGMENT !1");
+</script>
+<body>
+    <!-- TASK 1 -->
+    <h1>TASK 1</h1>
+    <titles>JavaScript current day and time</title>
+        <p id="task1"></p>
+        <p id="task1_"></p>
+
+        <!-- Task 2 -->
+        <h1>TASk 2</h1>
+        <p>Write a JavaScript program to get the current date.</p>
+        <p id="task2"></p>
+
+        <!-- Task 3 -->
+        <h1>task3</h1>
+        <p> Write a JavaScript program to find the area of a triangle where lengths of the
+            three of its sides are 5, 6, 7
+        </p>
+        <!-- task3 -->
+        Side 1: <input type="number" id="side1"><br><br>
+        Side 2: <input type="number" id="side2"><br><br>
+        Side 3: <input type="number" id="side3"><br><br>
+        <button onclick="task3()">Calculate Area </button>
+
+        <p id="task3"></p>
+
+        <!-- task 4 -->
+        <h1>Task4</h1>
+        <p> Write a JavaScript program to rotate the string 'Saylani' </p>
+        <p id="task4"></p>
+
+        <!-- task 5 -->
+        <h1>Task5</h1>
+        <p> Write a JavaScript program to determine whether a given year is a leap year in the Gregorian calendar. </p>
+        <input type="number" id="year1"><br><br>
+        <button onclick="myFunction()">Check Year!</button>
+        <div id="task5"></div>
+        <!-- task 6 -->
+        <h1>Task6</h1>
+        <p id="task6"></p>
+        <!-- task 7 -->
+        <h1>task 7</h1>
+        <h3>Guess any number between 0-10</h3><br>
+        Enter Your number here: <input type="number" id="number"><br><br>
+        <button onclick="myFunction()">Check!!</button>
+        <div id="result"></div>
+        <br>
+        <br>
+        <!-- task 8 -->
+        <h1>task 8</h1>
+        <p id="task8"></p>
+        <!-- task9 -->
+        <h1>task9</h1>
+        <!-- <p id="task9"></p> -->
+
+        Enter Number: <input type="number" id="num1"><br><br>
+        Enter Number: <input type="number" id="num2"><br><br>
+        <button onclick="multiply()">multiply</button>
+        <button onclick="divide()">divide</button>
+        <div id="task9"></div>
+        <br>
+        <br>
+        <!-- task 10 -->
+        <h1>task10</h1>
+        <input type="number" id="celsius" placeholder="Enter temp in Celsius">
+        <input type="number" id="farhenheit" placeholder="Enter temp in Farhenheit">
+        <button onclick="task10()">Convert</button>
+        <p id="task10"></p>
+
+        <br>
+        <br>
+        <!-- task 11 -->
+        <h1>task11</h1>
+        Enter Number 1: <input type="number" id="num1"><br><br>
+        Enter Number 2: <input type="number" id="num2"><br><br>
+        <button onclick="checkSum()">Check Sum</button>
+        <div id="result"></div>
+        <!-- task 12 -->
+        <h1>task12</h1>
+
+        <input type="number" id="task12" placeholder="Enter number for task 12" />
+        <button onclick="task12()">Task 12 submit</button>
+        <div id="result"></div>
+
+        <br>
+        <br>
+         <!-- task 14 -->
+         <h1>task14</h1>
+         <div id="result"></div>
+         <!-- task 16 -->
+         <h1>task16</h1>
+         <div id="result1"></div>
+
+        
+
+
+
+
+</body>
+<script>
+    //task 1
+    var today = new Date();
+    var day = today.getDay();
+    var daylist = ["Sunday", "Monday", "Tuesday", "Wednesday ", "Thursday", "Friday", "Saturday"];
+    document.getElementById("task1").innerHTML = ("Today is : " + daylist[day] + ".");
+    var hour = today.getHours();
+    var minute = today.getMinutes();
+    var second = today.getSeconds();
+    var prepand = (hour >= 12) ? " PM " : " AM ";
+    hour = (hour >= 12) ? hour - 12 : hour;
+
+    document.getElementById("task1_").innerHTML = ("Current Time : " + hour + prepand + " : " + minute + " : " + second);
+    //  task 2
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1;
+    var yyyy = today.getFullYear();
+    today = mm + '-' + dd + '-' + yyyy;
+    document.getElementById("task2").innerHTML = (today);
+    // task 3
+    function task3() {
+        s1 = Number(document.getElementById("side1").value);
+        s2 = Number(document.getElementById("side2").value);
+        s3 = Number(document.getElementById("side3").value);
+        var s = s1 + s2 + s3 / 2
+        var ans = Math.sqrt(s * (s - s1) * (s - s2) * (s - s3))
+        document.getElementById("task3").innerHTML = (ans)
+    }
+    // task 4
+    var string = "Saylani"
+    var arr = []
+    for (var i = string.length - 1; i >= 0; i--) {
+        arr.push(string[i])
+    }
+    document.getElementById("task4").innerHTML = (arr.join(''))
+
+
+    // task5
+    function myFunction() {
+        var year1 = Number(document.getElementById("year1").value);
+        if (year1 % 4 == 0) {
+            document.getElementById("task5").innerHTML = "This is a leap year";
+        } else {
+            document.getElementById("task5").innerHTML = "This is not a leap year";
+        }
+    }
+    // task 6
+    for (let i = 2014; i <= 2050; i++) {
+        var date = new Date(i, 1 - 1, 1)
+        var day = date.getDay()
+        if (day == 0) {
+            document.getElementById("task6").innerHTML = (`On first januray of ${i} day is sunday `)
+        }
+    }
+    // task 7
+    function myFunction() {
+        numIn = Number(document.getElementById("number").value);
+        // console.log(numIn);
+        numRand = Math.floor(Math.random() * 10);
+        // console.log(numRand);
+        if (numIn === numRand) {
+            document.getElementById("result").innerHTML = "Correct guess!!";
+        } else {
+            document.getElementById("result").innerHTML = "Wrong Guess!!!!";
+        }
+    }
+    // task 8
+    today = new Date();
+    var aug14 = new Date(today.getFullYear(), 8 - 1, 14);
+    if (today.getMonth() == (8 - 1) && today.getDate() > 14) {
+        aug14.setFullYear(aug14.getFullYear() + 1);
+    }
+    var secondsOfDay = 1000 * 60 * 60 * 24;
+    document.getElementById("task8").innerHTML = (365 + (Math.ceil((aug14.getTime() - today.getTime()) / (secondsOfDay))) + "days left till August 14 ");
+
+
+    // task 9
+    function multiply() {
+        var num1 = Number(document.getElementById("num1").value);
+        var num2 = Number(document.getElementById("num2").value);
+        document.getElementById("task9").innerHTML = (num1 * num2);
+    }
+    function divide() {
+        var num1 = Number(document.getElementById("num1").value);
+        var num2 = Number(document.getElementById("num2").value);
+        document.getElementById("task9").innerHTML = (num1 / num2);
+    }
+
+    // task 10
+    function task10() {
+        var celsius = Number(document.getElementById('celsius').value)
+        var farhenheit = Number(document.getElementById('farhenheit').value)
+        var cal = document.getElementById('celsius')
+        var far = document.getElementById('farhenheit')
+        if (farhenheit != 0) {
+            console.log("far", farhenheit)
+            var result = (farhenheit - 32) * 5 / 9
+            cal.value = result
+            document.getElementById("task10").innerHTML = (celsius);
+        } else if (celsius != 0) {
+            var result = (9 * (celsius / 5)) + 32
+            far.value = result
+            document.getElementById("task10").innerHTML = (farhenheit);
+
+        }
+
+    }
+
+    // task 11
+    function checkSum() {
+        var num1 = Number(document.getElementById("num1").value);
+        var num2 = Number(document.getElementById("num2").value);
+        if (num1 === num2) {
+            document.getElementById("result").innerHTML = (num1 + num2) * 3;
+        } else {
+            document.getElementById("result").innerHTML = (num1 + num2);
+
+        }
+
+    }
+
+    // task 12
+    function task12() {
+        var inp = Number(document.getElementById('task12').value)
+        if ((inp > 20 && inp < 100) || inp == 400) {
+            document.getElementById("result").innerHTML = ("The given Number is within 20 of 100 or 400.");
+        } else {
+            document.getElementById("result").innerHTML = ("The given Number is not in 20 of 100 or 400.");
+
+        }
+    }
+    // task 14
+    var sample = "my name is fasih ahmed";
+    var string = sample.split(' ');
+
+    for (let i = 0; i < string.length; i++) {
+        string[i] = string[i][0].toUpperCase() + string[i].substr(1)
+    }
+    document.getElementById("result").innerHTML =(string.join(' '));
+
+// task 16
+var string = ['This', 'is', 'Fasih', 'Ahmed']
+var arr = []
+for (var i = string.length - 1; i >= 0; i--) {
+    arr.push(string[i])
+}
+document.getElementById("result1").innerHTML =(arr);
+
+
+
+
+
+</script>
+
+</html>
